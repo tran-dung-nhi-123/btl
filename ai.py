@@ -13,7 +13,7 @@ def load_model_from_drive(url):
 
 # Giả sử bạn đã tải mô hình trước đó
 url="https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=sharing"
-model = tf.keras.models.load_model_from_drive(url)
+model = load_model_from_drive(url)
 labels = ['Bình thường', 'Viêm phổi']  # Thay thế bằng nhãn của bạn
 
 # Đọc ảnh đầu vào từ người dùng
