@@ -6,6 +6,11 @@ from tensorflow.keras.models import load_model # type: ignore
 from PIL import Image
 import gdown
 
+def load_model_from_drive(url):
+    output = 'cnn.h5'
+    gdown.download(url, output, quiet=False)
+    return load_model(output)
+
 # Giả sử bạn đã tải mô hình trước đó
 url='https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=drive_link'
 model = tf.keras.models.load_model_from_drive(url)
