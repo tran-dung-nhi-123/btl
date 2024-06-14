@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf # type: ignore
 from tensorflow.keras.models import load_model # type: ignore
 from PIL import Image
+import gdown
 
 # Giả sử bạn đã tải mô hình trước đó
 url='https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=drive_link'
