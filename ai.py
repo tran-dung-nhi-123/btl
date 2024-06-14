@@ -6,7 +6,8 @@ from tensorflow.keras.models import load_model # type: ignore
 from PIL import Image
 
 # Giả sử bạn đã tải mô hình trước đó
-model = tf.keras.models.load_model('C:\\Users\\DUNG NHI\\Desktop\\AI\\CNN_GRAY.h5')
+url='https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=drive_link'
+model = tf.keras.models.load_model_from_drive(url)
 labels = ['Bình thường', 'Viêm phổi']  # Thay thế bằng nhãn của bạn
 
 # Đọc ảnh đầu vào từ người dùng
