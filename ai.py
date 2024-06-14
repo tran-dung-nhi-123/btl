@@ -5,14 +5,24 @@ import tensorflow as tf # type: ignore
 from tensorflow.keras.models import load_model # type: ignore
 from PIL import Image
 import gdown
+import os
 
+# Hàm để tải mô hình từ Google Drive và lưu vào đường dẫn cục bộ
+def convert_url_to_local_path(url):
+    output_path = '/path/to/your/model.h5'  # Thay đổi đường dẫn này thành đường dẫn bạn muốn lưu mô hình
+    gdown.download(url, output_path, quiet=False)
+    return output_path
+
+# Hàm để tải mô hình từ đường dẫn cục bộ
 def load_model_from_drive(url):
     filepath = convert_url_to_local_path(url)
-    model_l = tf.keras.models.load(filepath)
-    return model_l
+    model1 = tf.keras.models.load_model(filepath)
+    return model1
 
-# Giả sử bạn đã tải mô hình trước đó
-url="https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=sharing"
+# URL của mô hình trên Google Drive
+url = "https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=sharing"
+
+# Tải và sử dụng mô hình
 model = load_model_from_drive(url)
 labels = ['Bình thường', 'Viêm phổi']  # Thay thế bằng nhãn của bạn
 
