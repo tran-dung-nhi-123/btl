@@ -1,23 +1,24 @@
 import streamlit as st
-import cv2 # type: ignore
+import cv2
 import numpy as np
-import tensorflow as tf # type: ignore
-from tensorflow.keras.models import load_model # type: ignore
+import tensorflow as tf
+from tensorflow.keras.models import load_model
 from PIL import Image
 import gdown
 import os
 
 def convert_url_to_local_path(url):
-    output_dir = '/path/to/save'  # Directory to save the model file
-    os.makedirs(output_dir, exist_ok=True)  # Ensure directory exists
-    output_path = os.path.join(output_dir, 'CNN_GRAY.h5')  # Final output path
+    # Sử dụng thư mục tạm thời, ví dụ /tmp trên Linux
+    output_dir = '/tmp'  # Bạn có thể thay đổi thành thư mục khác tuỳ thuộc vào hệ điều hành và quyền hạn
+    os.makedirs(output_dir, exist_ok=True)  # Đảm bảo thư mục tồn tại
+    output_path = os.path.join(output_dir, 'CNN_GRAY.h5')  # Đường dẫn cuối cùng
     gdown.download(url, output_path, quiet=False)
     return output_path
 
 def load_model_from_drive(url):
     filepath = convert_url_to_local_path(url)
-    model1 = tf.keras.models.load_model(filepath)
-    return model1
+    model = tf.keras.models.load_model(filepath)
+    return model
 
 # URL của mô hình trên Google Drive
 url = "https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=sharing"
