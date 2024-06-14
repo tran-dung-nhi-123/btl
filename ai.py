@@ -7,13 +7,13 @@ from PIL import Image
 import gdown
 import os
 
-# Hàm để tải mô hình từ Google Drive và lưu vào đường dẫn cục bộ
 def convert_url_to_local_path(url):
-    output_path = '/path/to/your/model.h5'  # Thay đổi đường dẫn này thành đường dẫn bạn muốn lưu mô hình
+    output_dir = '/path/to/save'  # Directory to save the model file
+    os.makedirs(output_dir, exist_ok=True)  # Ensure directory exists
+    output_path = os.path.join(output_dir, 'CNN_GRAY.h5')  # Final output path
     gdown.download(url, output_path, quiet=False)
     return output_path
 
-# Hàm để tải mô hình từ đường dẫn cục bộ
 def load_model_from_drive(url):
     filepath = convert_url_to_local_path(url)
     model1 = tf.keras.models.load_model(filepath)
