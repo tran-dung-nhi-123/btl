@@ -7,7 +7,7 @@ from PIL import Image
 import gdown
 
 def load_model_from_drive(url):
-    output = 'cnn.h5'
+    output = 'CNN_GRAY.h5'
     gdown.download(url, output, quiet=False)
     return load_model(output)
 
