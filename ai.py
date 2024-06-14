@@ -9,7 +9,7 @@ import gdown
 def load_model_from_drive(url):
     filepath = convert_url_to_local_path(url)
     model_l = tf.keras.models.load(filepath)
-    return model
+    return model_l
 
 # Giả sử bạn đã tải mô hình trước đó
 url="https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=sharing"
