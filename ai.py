@@ -7,9 +7,9 @@ from PIL import Image
 import gdown
 
 def load_model_from_drive(url):
-    output = 'CNN_GRAY.h5'
-    gdown.download(url, output, quiet=False)
-    return load_model(output)
+    filepath = convert_url_to_local_path(url)
+    model = tf.keras.models.load_model(filepath)
+    return model
 
 # Giả sử bạn đã tải mô hình trước đó
 url="https://drive.google.com/file/d/13lld1eAsVI7iKOlCghOYN52BgBPOBbn7/view?usp=sharing"
